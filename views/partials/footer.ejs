@@ -1,0 +1,120 @@
+<%- include('socialIcons', { socialIcons: socialIcons || [] }) %>
+
+<footer class="footer bg-dark text-white py-3">
+    <div class="container">
+        <!-- Main Footer Content - Centered -->
+        <div class="footer-content text-center">
+            <!-- Logo -->
+            <% if (footer.logoUrl) { %>
+                <div class="footer-logo-container mb-4">
+                    <img src="<%= footer.logoUrl %>" 
+                    
+                         alt="<%= footer.foundationName %> Logo" 
+                         class="footer-logo img-fluid mx-auto d-block"
+                         style="max-height: 90px;">
+                </div>
+            <% } %>
+
+            <!-- Foundation Name -->
+            <% if (footer.foundationName) { %>
+                <h4 class="mb-4"><%= footer.foundationName %></h4>
+            <% } %>
+
+            <!-- Contact Info - Centered List -->
+            <div class="contact-info mb-4">
+                <ul class="list-unstyled">
+                    <% if (footer.address) { %>
+                        <li class="mb-2">
+                            <i class="fas fa-map-marker-alt me-2"></i>
+                            <%= footer.address %>
+                        </li>
+                    <% } %>
+                    
+                    <% if (footer.phone) { %>
+                        <li class="mb-2">
+                            <i class="fas fa-phone me-2"></i>
+                            <a href="tel:<%= footer.phone.replace(/[^\d+]/g, '') %>" class="text-white text-decoration-none">
+                                <%= footer.phone %>
+                            </a>
+                        </li>
+                    <% } %>
+                    
+                    <% if (footer.email) { %>
+                        <li class="mb-2">
+                            <i class="fas fa-envelope me-2"></i>
+                            <a href="mailto:<%= footer.email %>" class="text-white text-decoration-none">
+                                <%= footer.email %>
+                            </a>
+                        </li>
+                    <% } %>
+                </ul>
+            </div>
+
+            <!-- Social Icons (if included separately) -->
+            <div class="social-icons mb-4">
+                <!-- Your social icons content here -->
+            </div>
+        </div>
+
+        <!-- Copyright - Centered -->
+        <div class="copyright text-center mt-4 pt-3 border-top border-light">
+            <p class="mb-0 small text-black">
+                <%= footer.copyrightText || '&copy; ' + new Date().getFullYear() + ' All Rights Reserved' %>
+            </p>
+        </div>
+    </div>
+</footer>
+
+<style>
+    .footer {
+        background: linear-gradient(120deg, #00e4d0, #5983e8);
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    
+    .footer-content {
+        max-width: 600px;
+        margin: 0 auto;
+    }
+    
+    .footer-logo {
+        transition: transform 0.3s ease;
+    }
+    
+    .footer-logo:hover {
+        transform: scale(1.2);
+    }
+    
+    .footer h4 {
+        font-weight: 600;
+        letter-spacing: 0.5px;
+    }
+    
+    .contact-info ul li {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .footer a {
+        transition: all 0.3s ease;
+    }
+    
+    .footer a:hover {
+        opacity: 0.8;
+        text-decoration: underline;
+    }
+    
+    .copyright {
+        opacity: 0.8;
+    }
+    
+    @media (max-width: 768px) {
+        .footer {
+            padding: 2rem 0;
+        }
+        
+        .footer-logo {
+            max-height: 70px;
+        }
+    }
+</style>

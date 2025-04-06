@@ -1,0 +1,153 @@
+/* heroSection.css */
+.hero-section {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    
+  }
+  
+  /* Carousel Item */
+  .carousel-item {
+    height: 80vh;
+    min-height: 600px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+  }
+  
+  /* Overlay for better text readability */
+  .carousel-item::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+  }
+  
+  /* Caption Styles */
+  .carousel-caption {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    max-width: 1200px;
+    padding: 0 2rem;
+    text-align: center;
+    z-index: 1;
+  }
+  
+  .hero-title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    animation: fadeInUp 0.8s ease;
+  }
+  
+  .hero-subtitle {
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+    animation: fadeInUp 1s ease;
+  }
+  
+  .hero-cta {
+    padding: 0.8rem 2.5rem;
+    font-weight: 600;
+    border-radius: 50px;
+    animation: fadeInUp 1.2s ease;
+    transition: all 0.3s ease;
+  }
+  
+  .hero-cta:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Carousel Indicators */
+  .carousel-indicators button {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 2px solid white;
+    background-color: transparent;
+    margin: 0 8px;
+  }
+  
+  .carousel-indicators .active {
+    background-color: white;
+  }
+  
+  /* Animations */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Responsive Adjustments */
+  @media (max-width: 992px) {
+    .carousel-item {
+      height: 70vh;
+      min-height: 500px;
+    }
+    
+    .hero-title {
+      font-size: 2.8rem;
+    }
+    
+    .hero-subtitle {
+      font-size: 1.5rem;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .carousel-item {
+      height: 60vh;
+      min-height: 400px;
+    }
+    
+    .hero-title {
+      font-size: 2.2rem;
+      margin-bottom: 1rem;
+    }
+    
+    .hero-subtitle {
+      font-size: 1.2rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .hero-cta {
+      padding: 0.6rem 1.8rem;
+      font-size: 1rem;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .carousel-item {
+      height: 50vh;
+      min-height: 300px;
+    }
+    
+    .hero-title {
+      font-size: 1.8rem;
+    }
+    
+    .hero-subtitle {
+      font-size: 1rem;
+    }
+    
+    .carousel-indicators button {
+      width: 10px;
+      height: 10px;
+    }
+  }

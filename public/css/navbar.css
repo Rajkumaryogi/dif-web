@@ -1,0 +1,101 @@
+/* Base Navbar Styling */
+.custom-nav {
+  font-family: "playfair Display", serif;
+    background: linear-gradient(120deg, #00e4d0, #5983e8);
+    /* height: 74px; */
+    padding-left: 8px;
+    padding-right: 8px;
+    padding-top: 0%;
+    padding-bottom: 0%;
+    font-size: 16px;
+  }
+  .container{
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 0px;
+  }
+  
+  
+  
+  /* Active state for nav links */
+  .nav-link.active {
+    color: white !important;
+    font-weight: 500;
+    position: relative;
+  }
+  
+  .nav-link.active::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 60%;
+    height: 2px;
+    background: white;
+    transform: translateX(-50%);
+  }
+  
+  /* Active state for dropdown parent */
+  .dropdown-toggle.active {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 0.25rem;
+  }
+  
+  /* Active state for dropdown items */
+  .dropdown-item.active {
+    background-color: rgba(50, 65, 150, 0.2) !important;
+    color: black !important;
+    font-weight: 500;
+  }
+
+  /* Donate button */
+  .donate-btn {
+    background-color: #1e5631;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+  }
+  
+  /* Donate button hover state */
+  .donate-btn:hover {
+    background-color: #193d29;
+    font-weight: bold;
+  }
+  
+  /* Donate button focus state */
+  .donate-btn:focus {
+    outline: none;
+  }
+  
+  /* Donate button disabled state */
+  .donate-btn.disabled {
+    background-color: #cccccc;
+    color: #999999;
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
+  
+  /* Donate button loading state */
+  
+  /* Donate button active state */
+  .donate-btn.active {
+    background-color: #1e5631 !important;
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.3);
+  }
+  
+  /* Mobile view adjustments */
+  @media (max-width: 576px) {
+    .nav-link.active::after {
+      display: none;
+    }
+    
+    .nav-link.active {
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 0.25rem;
+    }
+    
+    .dropdown-menu {
+      background-color: rgba(0, 228, 208, 0.95);
+    }
+  }

@@ -1,0 +1,46 @@
+<% if (socialIcons && socialIcons.length > 0) { %>
+    <div class="social-icons-wrapper text-center py-3">
+      <% socialIcons.forEach(icon => { %>
+        <a href="<% icon.url %>"
+           target="_blank" 
+           class="social-icon-link"
+           
+           title="<%= icon.name %>"
+           >
+           <i class="<%= icon.iconClass %> fa-lg" 
+             style = "--hover-color:<%= icon.color %> ;"
+             onmouseover="this.style.color='var(--hover-color)';"   
+             onmouseout="this.style.color='var(--normal-color)';"
+            > </i>
+          </a>
+          <% }); %>
+        </div>
+    <style>
+      
+      .social-icon-link {
+        margin: 5px;
+        background: #fff;
+        padding: 1rem;
+        text-decoration: none;
+        color: #333;
+        font-size: 1.1rem;
+        line-height: 1.1;
+        cursor: pointer;
+        box-shadow: 4px 4px 4px 4px rgba(0, 0, 0, 0.4);
+        /* border: none; */
+        border-radius: 50%;
+        display: inline-block;
+        transition: transform 0.3s;
+        border-radius: 50%;
+      }
+      
+      .social-icon-link:hover {
+        /* color: #1A91DA; */
+        transform: translateY(-3px);
+      }
+      
+      .social-icon-link i {
+        vertical-align: middle;
+      }
+    </style>
+  <% } %>

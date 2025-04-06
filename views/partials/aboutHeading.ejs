@@ -1,0 +1,91 @@
+
+<div class="container">
+        <section class="about-section">
+        <% if (missionVisionItems && missionVisionItems.length > 0) { %>
+            <% missionVisionItems.forEach(item => { %>
+                <% if (item.heading === "About Us"){ %>
+                    <div class="about-card" data-order="<%= item.order %>">
+                        <h2 class="heading"><%= item.heading %></h2>
+                        <h3 class="subheading"><%= item.subheading %></h3>
+                        <div class="description"><%= item.description %></div>
+                    </div>
+                    
+                <%}else{%>
+                    
+                <%} %>
+            <% }); %>
+        <% } else { %>
+            <div class="no-content">
+                <p>Mission and Vision content coming soon!</p>
+            </div>
+        <% } %>
+    </div>
+</section>
+
+<style>
+    /* Mission Vision Section Styles */
+    .about-section {
+        padding: 4rem 0;
+        background-color: #f8f9fa;
+    }
+
+    .about-section .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 1.5rem;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+    }
+
+    .about-card {
+        background: #ffffff;
+        padding: 2rem;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        transition: all 0.3s ease;
+        /* border-left: 4px solid #3498db; */
+    }
+
+    .about-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .about-card .heading {
+        color: #2c3e50;
+        font-size: 1.5rem;
+        margin-bottom: 0.75rem;
+        font-weight: 600;
+    }
+
+    .about-card .subheading {
+        color: #3498db;
+        font-size: 1.1rem;
+        margin-bottom: 1rem;
+        font-weight: 500;
+    }
+
+    .about-card .description {
+        text-align: justify;
+        color: #555;
+        line-height: 1.7;
+        font-size: 1rem;
+    }
+
+    .no-content {
+        grid-column: 1 / -1;
+        text-align: center;
+        padding: 2rem;
+        color: #7f8c8d;
+    }
+
+    @media (max-width: 768px) {
+        .about-section .container {
+            grid-template-columns: 1fr;
+            padding: 0 1rem;
+        }
+        
+        
+    }
+</style>

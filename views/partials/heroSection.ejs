@@ -1,0 +1,68 @@
+<% if (heroSlides && heroSlides.length) { %>
+  <section class="hero-section">
+    <div id="heroCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="500">
+      
+      <!-- Indicators -->
+      <div class="carousel-indicators">
+        <% heroSlides.forEach((slide, index) => { %>
+          <button type="button" 
+                  data-bs-target="#heroCarousel" 
+                  data-bs-slide-to="<%= index %>" 
+                  class="<%= index === 0 ? 'active' : '' %>"
+                  aria-current="<%= index === 0 ? 'true' : 'false' %>">
+          </button>
+        <% }); %>
+      </div>
+
+      <!-- Slides -->
+      <div class="carousel-inner">
+        <% heroSlides.forEach((slide, index) => { %>
+          <div class="carousel-item <%= index === 0 ? 'active' : '' %>" 
+               style="background-image: url('<%= slide.image %>'); height: 80vh; background-size: cover;">
+            <div class="carousel-caption d-flex flex-column justify-content-center h-100">
+              <h1 class="display-4"><%= slide.title %></h1>
+              <p class="lead"><%= slide.subtitle %></p>
+              <% if (slide.ctaText) { %>
+                <div class="mt-3">
+                  <a href="<%= slide.ctaLink || '/donate' %>" class="btn btn-primary btn-lg px-4">
+                    <%= slide.ctaText %>
+                  </a>
+                </div>
+              <% } %>
+            </div>
+          </div>
+        <% }); %>
+      </div>
+
+      <!-- Controls -->
+      <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+  </section>
+
+  <!-- Optional: Add JavaScript to handle very fast transitions more smoothly -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var myCarousel = document.getElementById('heroCarousel');
+      var carousel = new bootstrap.Carousel(myCarousel, {
+        interval: 5000,
+        wrap: true
+      });
+      
+      // Optional: Pause on hover
+      myCarousel.addEventListener('mouseenter', function() {
+        carousel.pause();
+      });
+      
+      myCarousel.addEventListener('mouseleave', function() {
+        carousel.cycle();
+      });
+    });
+  </script>
+<% } %>
