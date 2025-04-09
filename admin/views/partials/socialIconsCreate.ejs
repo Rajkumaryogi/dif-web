@@ -1,0 +1,98 @@
+<!-- <h2>Add New Social Icon</h2>
+<form method="POST" action="/admin/socialIconsAdmin/create">
+  <input name="order" placeholder="order" required />
+  <input name="name" placeholder="Name" required />
+  <input name="url" placeholder="URL" required />
+  <input name="iconClass" placeholder="Font Awesome Class" required />
+  <input name="visibility" placeholder="true/false" required />
+  <input name="color" type="color" required />
+  <button type="submit">Add Icon</button>
+</form>
+<a href="/admin/socialIconsAdmin">← Back</a> -->
+
+
+<div class="container mt-4">
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h2>Add New Social Icon</h2>
+    <a href="/admin/socialIconsAdmin" class="btn btn-outline-secondary">
+      <i class="fas fa-arrow-left"></i> Back to List
+    </a>
+  </div>
+
+  <div class="card shadow-sm">
+    <div class="card-body">
+      <form method="POST" action="/admin/socialIconsAdmin/create">
+        <div class="row g-3">
+          <!-- Order -->
+          <div class="col-md-6">
+            <label for="order" class="form-label">Order (Display Priority)</label>
+            <input type="number" class="form-control" id="order" name="order" placeholder="e.g., 1" required>
+          </div>
+
+          <!-- Name -->
+          <div class="col-md-6">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" class="form-control" id="name" name="name" placeholder="e.g., Facebook" required>
+          </div>
+
+          <!-- URL -->
+          <div class="col-12">
+            <label for="url" class="form-label">URL</label>
+            <input type="url" class="form-control" id="url" name="url" placeholder="e.g., https://facebook.com/yourpage" required>
+          </div>
+
+          <!-- Font Awesome Class -->
+          <div class="col-md-6">
+            <label for="iconClass" class="form-label">Font Awesome Class</label>
+            <div class="input-group">
+              <span class="input-group-text"><i class="fas fa-icons"></i></span>
+              <input type="text" class="form-control" id="iconClass" name="iconClass" placeholder="e.g., fa-brands fa-facebook" required>
+            </div>
+            <small class="text-muted">Use <a href="https://fontawesome.com/icons" target="_blank">Font Awesome</a> class names</small>
+          </div>
+
+          <!-- Visibility -->
+          <div class="col-md-6">
+            <label for="visibility" class="form-label">Visibility</label>
+            <select class="form-select" id="visibility" name="visibility" required>
+              <option value="true">Visible</option>
+              <option value="false">Hidden</option>
+            </select>
+          </div>
+
+          <!-- Color Picker -->
+          <div class="col-md-6">
+            <label for="color" class="form-label">Icon Color</label>
+            <div class="input-group color-picker">
+              <input type="color" class="form-control form-control-color" id="color" name="color" value="#1A91DA" required>
+              <input type="text" class="form-control" placeholder="#1A91DA" id="colorText" readonly>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-4">
+          <button type="submit" class="btn btn-primary px-4">
+            <i class="fas fa-plus-circle me-2"></i> Add Icon
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<style>
+  .color-picker {
+    max-width: 200px;
+  }
+  .form-control-color {
+    width: 50px;
+    height: 38px;
+  }
+</style>
+
+<script>
+  // Sync color picker with text field
+  document.getElementById('color').addEventListener('input', function() {
+    document.getElementById('colorText').value = this.value;
+  });
+</script>

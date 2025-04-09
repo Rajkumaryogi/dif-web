@@ -1,24 +1,9 @@
-.admin-layout {
-    display: grid;
-    /* grid-template-columns: 250px 1fr; */
-    /* min-height: 100vh; */
-  }
-  
-  /* .admin-sidebar {
-    background: #2c3e50;
-    color: white;
-    padding: 1rem;
-  } */
-  
-  .admin-content {
-    padding: 2rem;
-  }
-
+/* 
   body {
     font-family: Arial, sans-serif;
     background-color: #f5f5f5;
-  }
-  .login-container, .dashboard-container {
+  } */
+  .login-container {
     text-align: center;
     max-width: 400px;
     margin: 100px auto;
@@ -28,16 +13,35 @@
     box-shadow: 0 0 20px rgba(0,0,0,0.5);
   }
   input{
-    width: 50%;
+    width: 80%;
     padding: 10px;
     margin-top: 10px;
   }
   button {
-    width: 50%;
+    /* width: 50%; */
     padding: 10px;
     margin-top: 10px;
   }
   .error {
     color: red;
+  }
+
+  #admin-wrapper {
+    display: flex;
+    min-height: 100vh;
+  }
+  
+  #sidebar {
+    width: 250px;
+    transition: all 0.3s;
+  }
+  
+  #admin-wrapper.toggled #sidebar {
+    margin-left: -250px;
+  }
+  
+  #page-content-wrapper {
+    flex: 1;
+    overflow-x: hidden;
   }
   

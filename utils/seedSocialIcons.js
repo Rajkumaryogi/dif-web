@@ -6,11 +6,11 @@ const connectDB = require("../config/database");
 connectDB();
 
 const socialIcons = [
-    { name: "Facebook", url: "https://facebook.com/yourpage", iconClass: "fab fa-facebook", color:"#166FE5" },
-    { name: "YouTube", url: "https://www.youtube.com/channel/yourpage", iconClass: "fa-brands fa-youtube",color:"#CC0000" },
-    { name: "Twitter", url: "https://twitter.com/yourpage", iconClass: "fa-brands fa-twitter",color:"#1A91DA" },
-    { name: "Instagram", url: "https://instagram.com/yourpage", iconClass: "fa-brands fa-instagram",color:"#833AB4" },
-    { name: "LinkedIn", url: "https://www.linkedin.com/company/yourpage", iconClass: "fa-brands fa-linkedin",color:"#004182" }
+    { order: 1, name: "Facebook", url: "https://facebook.com/yourpage", iconClass: "fab fa-facebook", visibility: true, color:"#166FE5" },
+    { order: 2, name: "YouTube", url: "https://www.youtube.com/channel/yourpage", iconClass: "fa-brands fa-youtube", visibility: true, color:"#CC0000" },
+    { order: 3, name: "Twitter", url: "https://twitter.com/yourpage", iconClass: "fa-brands fa-twitter", visibility: true, color:"#1A91DA" },
+    {order: 4, name: "Instagram", url: "https://instagram.com/yourpage", iconClass: "fa-brands fa-instagram", visibility: true, color:"#833AB4" },
+    {order: 5, name: "LinkedIn", url: "https://www.linkedin.com/company/yourpage", iconClass: "fa-brands fa-linkedin", visibility: true, color:"#004182" }
 ];
 
 async function seedSocialIcons() {
