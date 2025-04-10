@@ -32,7 +32,6 @@
   </tbody>
 </table> -->
 
-
 <div class="container mt-4">
   <div class="d-flex justify-content-between align-items-center mb-4">
     <h1 class="mb-0"><%= pageTitle %></h1>
@@ -66,9 +65,17 @@
               </a>
             </td>
             <td>
-              <span class="badge bg-<%= icon.visibility ? 'success' : 'secondary' %>">
-                <%= icon.visibility ? 'Visible' : 'Hidden' %>
-              </span>
+              <div class="form-check form-switch">
+                <input 
+                  class="form-check-input toggle-visibility" 
+                  type="checkbox" 
+                  data-icon-id="<%= icon._id %>"
+                  <%= icon.visibility ? 'checked' : '' %>
+                >
+                <label class="form-check-label">
+                  <%= icon.visibility ? 'Visible' : 'Hidden' %>
+                </label>
+              </div>
             </td>
             <td>
               <span class="color-preview" style="background-color: <%= icon.color %>;"></span>
@@ -101,4 +108,47 @@
     vertical-align: middle;
     margin-right: 8px;
   }
+  .form-switch .form-check-input {
+    width: 3em;
+    height: 1.5em;
+    cursor: pointer;
+  }
+  .form-switch .form-check-label {
+    margin-left: 0.5em;
+    cursor: pointer;
+  }
 </style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('.toggle-visibility').forEach(toggle => {
+    toggle.addEventListener('change', async function() {
+      const iconId = this.dataset.iconId;
+      const isVisible = this.checked;
+      
+      try {
+        const response = await fetch(`/admin/socialIconsAdmin/${iconId}/toggle`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        });
+        
+        const result = await response.json();
+        if (!result.success) {
+          this.checked = !isVisible; // Revert if failed
+          alert('Failed to update visibility');
+        } else {
+          // Update the label text
+          const label = this.nextElementSibling;
+          label.textContent = isVisible ? 'Visible' : 'Hidden';
+        }
+      } catch (error) {
+        console.error('Error:', error);
+        this.checked = !isVisible; // Revert on error
+        alert('Network error');
+      }
+    });
+  });
+});
+</script>

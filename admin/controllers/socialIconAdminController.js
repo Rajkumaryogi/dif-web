@@ -67,3 +67,19 @@ exports.deleteIcon = async (req, res) => {
     res.status(500).send("Delete failed.");
   }
 };
+
+// toggle Visibility
+exports.toggleVisibility = async (req, res) => {
+  try {
+    const icon = await SocialIcon.findById(req.params.id);
+    if (!icon) return res.status(404).send("Icon not found");
+    
+    icon.visibility = !icon.visibility;
+    await icon.save();
+    
+    res.json({ success: true, visibility: icon.visibility });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ success: false, error: "Toggle failed" });
+  }
+};

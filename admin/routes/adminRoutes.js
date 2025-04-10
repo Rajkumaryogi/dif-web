@@ -2,7 +2,6 @@ const express = require("express");
 const router = express.Router();
 const adminController = require("../controllers/adminController");
 const isAdmin = require("../middlewares/isAdmin");
-const socialIconRoutes = require('./socialIconRoutes');
 
 // Admin login
 router.get("/login", adminController.getLogin);
@@ -16,6 +15,13 @@ router.get("/logout", isAdmin, adminController.logout);
 
 
 // Other admin routes...
+//socialIcon
+const socialIconRoutes = require('./socialIconRoutes');
 router.use('/socialIconsAdmin', isAdmin, socialIconRoutes);
+
+//HeroSlide
+const heroSlideRoutes = require("./heroSlideRoutes");
+router.use("/heroSlideAdmin", isAdmin, heroSlideRoutes);
+
 
 module.exports = router;

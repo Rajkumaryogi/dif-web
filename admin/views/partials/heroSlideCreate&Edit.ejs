@@ -1,0 +1,38 @@
+
+<h2><%= slide ? 'Edit' : 'Add' %> Slide</h2>
+<form method="POST" action="<%= slide ? '/admin/heroSlideAdmin/edit/' + slide._id : '/admin/heroSlideAdmin/create' %>">
+  <div class="mb-3">
+    <label>Image URL</label>
+    <input type="text" name="image" class="form-control" value="<%= slide?.image || '' %>" required>
+  </div>
+  <div class="mb-3">
+    <label>Title</label>
+    <input type="text" name="title" class="form-control" value="<%= slide?.title || '' %>" required>
+  </div>
+  <div class="mb-3">
+    <label>Subtitle</label>
+    <input type="text" name="subtitle" class="form-control" value="<%= slide?.subtitle || '' %>" required>
+  </div>
+  <div class="mb-3">
+    <label>CTA Text</label>
+    <input type="text" name="ctaText" class="form-control" value="<%= slide?.ctaText || '' %>">
+  </div>
+  <div class="mb-3">
+    <label>CTA Link</label>
+    <input type="text" name="ctaLink" class="form-control" value="<%= slide?.ctaLink || '' %>">
+  </div>
+  <div class="mb-3">
+    <label>Order</label>
+    <input type="number" name="order" class="form-control" value="<%= slide?.order || 0 %>">
+  </div>
+  <div class="form-check mb-3">
+    <input type="checkbox" class="form-check-input" name="isActive" value="true" <%= slide?.isActive ? 'checked' : 'false' %>>
+    <label class="form-check-label">Active</label>
+  </div>
+  <div class="d-flex justify-content-between">
+
+      <button type="submit" class="btn btn-primary mt-4">Save</button>
+      <a href="/admin/heroSlideAdmin" class="btn btn-secondary mt-4">Back</a>
+
+  </div>
+</form>
