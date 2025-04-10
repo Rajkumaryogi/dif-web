@@ -9,7 +9,7 @@ const seedSlides = [
     title: 'Be the Change!',
     subtitle: 'Let us permit nature to have her way.',
     ctaText: 'Join Us',
-    ctaLink: '/join',
+    ctaLink: '/membership',
     isActive: true,
     order: 2
   },
@@ -21,6 +21,15 @@ const seedSlides = [
     ctaLink: '/donate',
     isActive: true,
     order: 1
+  },
+  {
+    image: '/assets/img/wallpaper.png',
+    title: 'Save Our Rivers',
+    subtitle: 'Protecting waterways for future generations',
+    ctaText: 'Donate Now',
+    ctaLink: '/donate',
+    isActive: true,
+    order: 3
   }
 ];
 

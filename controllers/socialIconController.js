@@ -11,5 +11,3 @@ exports.getSocialIcons = async () => {
         return [];
     }
 };
-
-//Admin controller
