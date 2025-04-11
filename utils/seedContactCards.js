@@ -28,7 +28,7 @@ const seedContactCards = async () => {
             { name: "Facebook", url: "https://facebook.com/yourpage", color:"#166FE5" },
             { name: "YouTube", url: "https://www.youtube.com/channel/yourpage", color:"#CC0000" },
             { name: "Twitter", url: "https://twitter.com/yourpage", color:"#1A91DA" },
-            { name: "Instagram", url: "https://instagram.com/yourpage", color:"#833AB4" },
+            { name: "Instagram", url: "https://instagram.com/yourpage", color:"#fd0a83" },
             { name: "LinkedIn", url: "https://www.linkedin.com/company/yourpage", color:"#004182" }
           ]
         },
@@ -45,7 +45,7 @@ const seedContactCards = async () => {
             { name: "Facebook", url: "https://facebook.com/yourpage", color:"#166FE5" },
             { name: "YouTube", url: "https://www.youtube.com/channel/yourpage", color:"#CC0000" },
             { name: "Twitter", url: "https://twitter.com/yourpage", color:"#1A91DA" },
-            { name: "Instagram", url: "https://instagram.com/yourpage", color:"#833AB4" },
+            { name: "Instagram", url: "https://instagram.com/yourpage", color:"#fd0a83" },
             { name: "LinkedIn", url: "https://www.linkedin.com/company/yourpage", color:"#004182" }]
         },
         {
@@ -61,7 +61,7 @@ const seedContactCards = async () => {
             { name: "Facebook", url: "https://facebook.com/yourpage", color:"#166FE5" },
             { name: "YouTube", url: "https://www.youtube.com/channel/yourpage", color:"#CC0000" },
             { name: "Twitter", url: "https://twitter.com/yourpage", color:"#1A91DA" },
-            { name: "Instagram", url: "https://instagram.com/yourpage", color:"#833AB4" },
+            { name: "Instagram", url: "https://instagram.com/yourpage", color:"#fd0a83" },
             { name: "LinkedIn", url: "https://www.linkedin.com/company/yourpage", color:"#004182" }]
         },
         {
@@ -77,7 +77,7 @@ const seedContactCards = async () => {
             { name: "Facebook", url: "https://facebook.com/yourpage", color:"#166FE5" },
             { name: "YouTube", url: "https://www.youtube.com/channel/yourpage", color:"#CC0000" },
             { name: "Twitter", url: "https://twitter.com/yourpage", color:"#1A91DA" },
-            { name: "Instagram", url: "https://instagram.com/yourpage", color:"#833AB4" },
+            { name: "Instagram", url: "https://instagram.com/yourpage", color:"#fd0a83" },
             { name: "LinkedIn", url: "https://www.linkedin.com/company/yourpage", color:"#004182" }]
         },
         {
@@ -93,7 +93,7 @@ const seedContactCards = async () => {
             { name: "Facebook", url: "https://facebook.com/yourpage", color:"#166FE5" },
             { name: "YouTube", url: "https://www.youtube.com/channel/yourpage", color:"#CC0000" },
             { name: "Twitter", url: "https://twitter.com/yourpage", color:"#1A91DA" },
-            { name: "Instagram", url: "https://instagram.com/yourpage", color:"#833AB4" },
+            { name: "Instagram", url: "https://instagram.com/yourpage", color:"#fd0a83" },
             { name: "LinkedIn", url: "https://www.linkedin.com/company/yourpage", color:"#004182" }]
         },
         {
@@ -108,8 +108,8 @@ const seedContactCards = async () => {
           socialLinks: [
             { name: "Facebook", url: "https://facebook.com/yourpage", color:"#166FE5" },
             { name: "YouTube", url: "https://www.youtube.com/channel/yourpage", color:"#CC0000" },
-            { name: "Twitter", url: "https://twitter.com/yourpage", color:"#1A91DA" },
-            { name: "Instagram", url: "https://instagram.com/yourpage", color:"#833AB4" },
+            { name: "Twitter", url: "https://twitter.com/yourpage", color:"#fd0a83" },
+            { name: "Instagram", url: "https://instagram.com/yourpage", color:"#fd0a83" },
             { name: "LinkedIn", url: "https://www.linkedin.com/company/yourpage", color:"#004182" }]
         },
         {
@@ -125,7 +125,7 @@ const seedContactCards = async () => {
             { name: "Facebook", url: "https://facebook.com/yourpage", color:"#166FE5" },
             { name: "YouTube", url: "https://www.youtube.com/channel/yourpage", color:"#CC0000" },
             { name: "Twitter", url: "https://twitter.com/yourpage", color:"#1A91DA" },
-            { name: "Instagram", url: "https://instagram.com/yourpage", color:"#833AB4" },
+            { name: "Instagram", url: "https://instagram.com/yourpage", color:"#fd0a83" },
             { name: "LinkedIn", url: "https://www.linkedin.com/company/yourpage", color:"#004182" }]
       }
     ];

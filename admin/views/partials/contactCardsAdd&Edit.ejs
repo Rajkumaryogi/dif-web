@@ -1,0 +1,164 @@
+<!-- <h2><%= contactCard ? "Edit" : "Add" %> Contact Card</h2>
+
+<form method="POST" action="<%= contactCard ? '/admin/contact-cards/edit/' + contactCard._id : '/admin/contact-cards/create' %>">
+  <input type="text" name="name" value="<%= contactCard?.name || '' %>" placeholder="Name" class="form-control mb-3" required>
+  <input type="text" name="position" value="<%= contactCard?.position || '' %>" placeholder="Position" class="form-control mb-3" required>
+  <input type="text" name="designation" value="<%= contactCard?.designation || '' %>" placeholder="Designation" class="form-control mb-3">
+  <input type="text" name="imageUrl" value="<%= contactCard?.imageUrl || '' %>" placeholder="Image URL" class="form-control mb-3">
+  <input type="email" name="email" value="<%= contactCard?.email || '' %>" placeholder="Email" class="form-control mb-3">
+  <input type="text" name="phone" value="<%= contactCard?.phone || '' %>" placeholder="Phone" class="form-control mb-3">
+  <input type="text" name="department" value="<%= contactCard?.department || '' %>" placeholder="Department" class="form-control mb-3">
+  <input type="number" name="order" value="<%= contactCard?.order %>" class="form-control mb-3" placeholder="Order">
+  
+  <button class="btn btn-primary" type="submit">Save</button>
+  <a href="/admin/contact-cards" class="btn btn-secondary">Back</a>
+</form> -->
+
+<div class="container mt-4">
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h2><%= contactCard ? "Edit" : "Add" %> Contact Card</h2>
+    <a href="/admin/contact-cards" class="btn btn-outline-secondary">
+      <i class="fas fa-arrow-left me-2"></i> Back
+    </a>
+  </div>
+
+  <div class="card shadow-sm">
+    <div class="card-body">
+      <form method="POST" action="<%= contactCard ? '/admin/contact-cards/edit/' + contactCard._id : '/admin/contact-cards/create' %>">
+        <div class="row g-3">
+          <div class="col-md-6">
+            <label class="form-label">Name</label>
+            <input type="text" name="name" value="<%= contactCard?.name || '' %>" class="form-control" required>
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Position</label>
+            <input type="text" name="position" value="<%= contactCard?.position || '' %>" class="form-control" required>
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Designation</label>
+            <input type="text" name="designation" value="<%= contactCard?.designation || '' %>" class="form-control">
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Image URL</label>
+            <input type="text" name="imageUrl" value="<%= contactCard?.imageUrl || '' %>" class="form-control">
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Email</label>
+            <input type="email" name="email" value="<%= contactCard?.email || '' %>" class="form-control">
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Phone</label>
+            <input type="text" name="phone" value="<%= contactCard?.phone || '' %>" class="form-control">
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Department</label>
+            <input type="text" name="department" value="<%= contactCard?.department || '' %>" class="form-control">
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Order</label>
+            <input type="number" name="order" value="<%= contactCard?.order || 0 %>" class="form-control">
+          </div>
+        </div>
+
+        <hr class="my-4">
+        <h5 class="mb-3">Social Links</h5>
+        <div id="social-links-container" class="mb-3">
+          <% if (contactCard?.socialLinks && contactCard.socialLinks.length > 0) { %>
+            <% contactCard.socialLinks.forEach((link, index) => { %>
+              <div class="card mb-2">
+                <div class="card-body">
+                  <div class="row g-2">
+                    <div class="col-md-4">
+                      <input type="text" name="socialLinks[<%= index %>][name]" value="<%= link.name %>" placeholder="Platform" class="form-control" required>
+                    </div>
+                    <div class="col-md-5">
+                      <input type="url" name="socialLinks[<%= index %>][url]" value="<%= link.url %>" placeholder="URL" class="form-control" required>
+                    </div>
+                    <div class="col-md-2">
+                      <input type="color" name="socialLinks[<%= index %>][color]" value="<%= link.color %>" class="form-control form-control-color">
+                    </div>
+                    <div class="col-md-1">
+                      <button type="button" class="btn btn-danger w-100 remove-social-link">
+                        <i class="fas fa-trash"></i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            <% }) %>
+          <% } else { %>
+            <div class="card mb-2">
+              <div class="card-body">
+                <div class="row g-2">
+                  <div class="col-md-4">
+                    <input type="text" name="socialLinks[0][name]" placeholder="Platform" class="form-control" required>
+                  </div>
+                  <div class="col-md-5">
+                    <input type="url" name="socialLinks[0][url]" placeholder="URL" class="form-control" required>
+                  </div>
+                  <div class="col-md-2">
+                    <input type="color" name="socialLinks[0][color]" value="#3b5998" class="form-control form-control-color">
+                  </div>
+                  <div class="col-md-1">
+                    <button type="button" class="btn btn-danger w-100 remove-social-link">
+                      <i class="fas fa-trash"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <% } %>
+        </div>
+
+        <button type="button" id="add-social-link" class="btn btn-outline-primary mb-4">
+          <i class="fas fa-plus me-2"></i> Add Social Link
+        </button>
+
+        <div class="d-flex justify-content-end gap-2">
+          <button type="submit" class="btn btn-primary px-4">
+            <i class="fas fa-save me-2"></i> Save
+          </button>
+          <a href="/admin/contact-cards" class="btn btn-secondary">Cancel</a>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script>
+  let socialLinkIndex = <%= contactCard?.socialLinks?.length || 1 %>;
+  
+  document.getElementById('add-social-link').addEventListener('click', () => {
+    const container = document.getElementById('social-links-container');
+    const html = `
+      <div class="card mb-2">
+        <div class="card-body">
+          <div class="row g-2">
+            <div class="col-md-4">
+              <input type="text" name="socialLinks[${socialLinkIndex}][name]" placeholder="Platform" class="form-control" required>
+            </div>
+            <div class="col-md-5">
+              <input type="url" name="socialLinks[${socialLinkIndex}][url]" placeholder="URL" class="form-control" required>
+            </div>
+            <div class="col-md-2">
+              <input type="color" name="socialLinks[${socialLinkIndex}][color]" value="#3b5998" class="form-control form-control-color">
+            </div>
+            <div class="col-md-1">
+              <button type="button" class="btn btn-danger w-100 remove-social-link">
+                <i class="fas fa-trash"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    `;
+    container.insertAdjacentHTML('beforeend', html);
+    socialLinkIndex++;
+  });
+
+  document.addEventListener('click', (e) => {
+    if (e.target.classList.contains('remove-social-link') || e.target.closest('.remove-social-link')) {
+      e.target.closest('.card').remove();
+    }
+  });
+</script>

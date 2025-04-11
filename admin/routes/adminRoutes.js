@@ -17,7 +17,7 @@ router.get("/logout", isAdmin, adminController.logout);
 // Other admin routes...
 //socialIcon
 const socialIconRoutes = require('./socialIconRoutes');
-router.use('/socialIconsAdmin', isAdmin, socialIconRoutes);
+router.use("/socialIconsAdmin", isAdmin, socialIconRoutes);
 
 //HeroSlide
 const heroSlideRoutes = require("./heroSlideRoutes");
@@ -25,7 +25,11 @@ router.use("/heroSlideAdmin", isAdmin, heroSlideRoutes);
 
 //Mission Vision
 const missionVisionRoutes = require("./missionVisionAdminRoutes");
-router.use('/mission-vision', isAdmin, missionVisionRoutes);
+router.use("/mission-vision", isAdmin, missionVisionRoutes);
+
+//Contact Cards 
+const contactCardRoutes = require("./contactCardAdminRoutes");
+router.use("/contact-cards", isAdmin, contactCardRoutes);
 
 
 module.exports = router;
