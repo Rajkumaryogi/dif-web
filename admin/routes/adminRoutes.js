@@ -23,5 +23,9 @@ router.use('/socialIconsAdmin', isAdmin, socialIconRoutes);
 const heroSlideRoutes = require("./heroSlideRoutes");
 router.use("/heroSlideAdmin", isAdmin, heroSlideRoutes);
 
+//Mission Vision
+const missionVisionRoutes = require("./missionVisionAdminRoutes");
+router.use('/mission-vision', isAdmin, missionVisionRoutes);
+
 
 module.exports = router;

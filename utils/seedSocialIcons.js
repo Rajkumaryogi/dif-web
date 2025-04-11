@@ -10,7 +10,8 @@ const socialIcons = [
     { order: 2, name: "YouTube", url: "https://www.youtube.com/channel/yourpage", iconClass: "fa-brands fa-youtube", visibility: true, color:"#CC0000" },
     { order: 3, name: "Twitter", url: "https://twitter.com/yourpage", iconClass: "fa-brands fa-twitter", visibility: true, color:"#1A91DA" },
     {order: 4, name: "Instagram", url: "https://instagram.com/yourpage", iconClass: "fa-brands fa-instagram", visibility: true, color:"#833AB4" },
-    {order: 5, name: "LinkedIn", url: "https://www.linkedin.com/company/yourpage", iconClass: "fa-brands fa-linkedin", visibility: true, color:"#004182" }
+    {order: 5, name: "LinkedIn", url: "https://www.linkedin.com/company/yourpage", iconClass: "fa-brands fa-linkedin", visibility: true, color:"#004182" },
+    {order: 6, name: "GitHub", url: "https://github.com/Dharti-International-Foundation/DIF-webDevJS", iconClass: "fa-brands fa-github", visibility: true, color:"#000000" }
 ];
 
 async function seedSocialIcons() {
