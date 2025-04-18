@@ -24,7 +24,7 @@
 
   <div class="card shadow-sm">
     <div class="card-body">
-      <form method="POST" action="<%= contactCard ? '/admin/contact-cards/edit/' + contactCard._id : '/admin/contact-cards/create' %>">
+      <form method="POST" enctype="multipart/form-data" action="<%= contactCard ? '/admin/contact-cards/edit/' + contactCard._id : '/admin/contact-cards/create' %>">
         <div class="row g-3">
           <div class="col-md-6">
             <label class="form-label">Name</label>
@@ -37,11 +37,14 @@
           <div class="col-md-6">
             <label class="form-label">Designation</label>
             <input type="text" name="designation" value="<%= contactCard?.designation || '' %>" class="form-control">
+            
           </div>
-          <div class="col-md-6">
-            <label class="form-label">Image URL</label>
-            <input type="text" name="imageUrl" value="<%= contactCard?.imageUrl || '' %>" class="form-control">
-          </div>
+          <label for="image">Upload Image</label>
+          <input type="file" name="image" class="form-control mb-3">
+          <% if (contactCard?.imageUrl) { %>
+          <img src="<%= contactCard.imageUrl %>" height="100" width="100" />
+          <% } %>
+
           <div class="col-md-6">
             <label class="form-label">Email</label>
             <input type="email" name="email" value="<%= contactCard?.email || '' %>" class="form-control">

@@ -1,0 +1,330 @@
+  <div class="container py-5">
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <div class="card shadow-lg">
+          <div class="card-header bg-primary text-white py-3">
+            <h2 class="text-center mb-0"><i class="fas fa-users me-2"></i>Membership Application</h2>
+          </div>
+          <div class="card-body p-4">
+            <ul class="nav nav-tabs nav-justified mb-4">
+              <li class="nav-item">
+                <a class="nav-link active" href="#" data-target="individual-form">
+                  <i class="fas fa-user me-2"></i>Individual
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#" data-target="organization-form">
+                  <i class="fas fa-building me-2"></i>Organization
+                </a>
+              </li>
+            </ul>
+
+            <form id="membershipForm" method="POST" action="/membership/submit">
+              <!-- Individual Form -->
+              <div id="individual-form" class="form-section active">
+                <input type="hidden" name="formType" value="individual">
+                
+                <div class="row g-3">
+                  <div class="col-md-6">
+                    <label class="form-label">Name of Person</label>
+                    <input type="text" name="individual[name]" class="form-control" required>
+                  </div>
+                  
+                  <div class="col-md-6">
+                    <label class="form-label">Gender</label>
+                    <select name="individual[gender]" class="form-select" required>
+                      <option value="">Select Gender</option>
+                      <option value="male">Male</option>
+                      <option value="female">Female</option>
+                      <option value="other">Other</option>
+                    </select>
+                  </div>
+                  
+                  <div class="col-md-6">
+                    <label class="form-label">Date of Birth</label>
+                    <input type="date" name="individual[dob]" class="form-control" required>
+                  </div>
+                  
+                  <div class="col-md-6">
+                    <label class="form-label">Email</label>
+                    <input type="email" name="individual[email]" class="form-control" required>
+                  </div>
+                  
+                  <div class="col-md-6">
+                    <label class="form-label">Phone Number</label>
+                    <div class="input-group">
+                      <span class="input-group-text"><i class="fas fa-phone"></i></span>
+                      <input type="tel" name="individual[phone]" class="form-control" required>
+                    </div>
+                  </div>
+                  
+                  <div class="col-md-6">
+                    <label class="form-label">Same WhatsApp Number?</label>
+                    <div class="btn-group w-100" role="group">
+                      <input type="radio" class="btn-check" name="individual[whatsappSame]" id="whatsappYes" value="true" required>
+                      <label class="btn btn-outline-primary" for="whatsappYes"><i class="fab fa-whatsapp me-2"></i>Yes</label>
+                      
+                      <input type="radio" class="btn-check" name="individual[whatsappSame]" id="whatsappNo" value="false">
+                      <label class="btn btn-outline-secondary" for="whatsappNo">No</label>
+                    </div>
+                  </div>
+                  
+                  <div class="col-md-6">
+                    <label class="form-label">Work Status</label>
+                    <select name="individual[workStatus]" class="form-select" required>
+                      <option value="">Select Work Status</option>
+                      <option value="employed">Employed</option>
+                      <option value="self-employed">Self-Employed</option>
+                      <option value="student">Student</option>
+                      <option value="unemployed">Unemployed</option>
+                      <option value="retired">Retired</option>
+                    </select>
+                  </div>
+                  
+                  <div class="col-md-6">
+                    <label class="form-label">State</label>
+                    <select name="individual[state]" class="form-select" required>
+                      <option value="">Select State</option>
+                      <!-- Add your states here -->
+                    </select>
+                  </div>
+                  
+                  <div class="col-md-6">
+                    <label class="form-label">District</label>
+                    <select name="individual[district]" class="form-select" required>
+                      <option value="">Select District</option>
+                      <!-- Districts will be loaded based on state selection -->
+                    </select>
+                  </div>
+                  
+                  <div class="col-12">
+                    <label class="form-label">Address</label>
+                    <textarea name="individual[address]" class="form-control" rows="3" required></textarea>
+                  </div>
+                  
+                  <div class="col-md-6">
+                    <label class="form-label">Pin Code</label>
+                    <input type="text" name="individual[pinCode]" class="form-control" required>
+                  </div>
+                  
+                  <div class="col-7 mt-3">
+                    <div class="form-check">
+                      <input type="checkbox" name="individual[agreedToTerms]" id="indTerms" class="form-check-input" required>
+                      <label class="form-check-label" for="indTerms">
+                        I agree to the <a href="#" data-bs-toggle="modal" data-bs-target="#termsModal">terms & conditions</a>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Organization Form -->
+              <div id="organization-form" class="form-section">
+                <input type="hidden" name="formType" value="organization">
+                
+                <div class="row g-3">
+                  <div class="col-12">
+                    <label class="form-label">Name of Organization</label>
+                    <div class="input-group">
+                      <span class="input-group-text"><i class="fas fa-building"></i></span>
+                      <input type="text" name="organization[orgName]" class="form-control" placeholder="Organization Name" required>
+                    </div>
+                  </div>
+                  
+                  <div class="col-md-6">
+                    <label class="form-label">Name of the Representative</label>
+                    <div class="input-group">
+                      <span class="input-group-text"><i class="fas fa-user-tie"></i></span>
+                      <input type="text" name="organization[representativeName]" class="form-control" placeholder="Name" required>
+                    </div>
+                  </div>
+                  
+                  <div class="col-md-6">
+                    <label class="form-label">Type of Organization</label>
+                    <select name="organization[orgType]" class="form-select" required>
+                      <option value="">Select Type</option>
+                      <option value="NGO">NGO</option>
+                      <option value="Corporate">Corporate</option>
+                      <option value="Educational">Educational Institution</option>
+                      <option value="Government">Government</option>
+                      <option value="Other">Other</option>
+                    </select>
+                  </div>
+                  
+                  <div class="col-md-6">
+                    <label class="form-label">Registration Number</label>
+                    <div class="input-group">
+                      <span class="input-group-text"><i class="fas fa-id-card"></i></span>
+                      <input type="text" name="organization[registrationNumber]" class="form-control" placeholder="Registration Number" required>
+                    </div>
+                  </div>
+                  
+                  <div class="col-md-6">
+                    <label class="form-label">Email</label>
+                    <div class="input-group">
+                      <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                      <input type="email" name="organization[email]" class="form-control" placeholder="Email" required>
+                    </div>
+                  </div>
+                  
+                  <div class="col-md-6">
+                    <label class="form-label">Phone Number</label>
+                    <div class="input-group">
+                      <span class="input-group-text">+91</span>
+                      <input type="tel" name="organization[phone]" class="form-control" placeholder="Phone Number" required>
+                    </div>
+                  </div>
+                  
+                  <div class="col-md-6">
+                    <label class="form-label">State</label>
+                    <select name="organization[state]" class="form-select" required>
+                      <option value="">Select State</option>
+                      <!-- Add your states here -->
+                    </select>
+                  </div>
+                  
+                  <div class="col-md-6">
+                    <label class="form-label">District</label>
+                    <select name="organization[district]" class="form-select" required>
+                      <option value="">Select District</option>
+                      <!-- Districts will be loaded based on state selection -->
+                    </select>
+                  </div>
+                  
+                  <div class="col-12">
+                    <label class="form-label">Address</label>
+                    <textarea name="organization[address]" class="form-control" rows="3" placeholder="House No. / Street Name / Locality" required></textarea>
+                  </div>
+                  
+                  <div class="col-md-6">
+                    <label class="form-label">Pin Code</label>
+                    <input type="text" name="organization[pinCode]" class="form-control" placeholder="Pin Code" required>
+                  </div>
+                  
+                  <div class="col-12 mt-3">
+                    <div class="form-check">
+                      <input type="checkbox" name="organization[agreedToTerms]" id="orgTerms" class="form-check-input" required>
+                      <label class="form-check-label" for="orgTerms">
+                        I agree to the <a href="#" data-bs-toggle="modal" data-bs-target="#termsModal">terms & conditions</a>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-4">
+                <button type="submit" class="btn btn-primary px-4 py-2">
+                  <i class="fas fa-paper-plane me-2"></i>Submit Application
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Terms Modal -->
+  <div class="modal fade" id="termsModal" tabindex="-1" aria-labelledby="termsModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="termsModalLabel">Terms & Conditions</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <!-- Add your terms and conditions here -->
+          <p>This is where your terms and conditions content would go...</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Tab switching with animation
+    document.querySelectorAll('.nav-tabs .nav-link').forEach(tab => {
+      tab.addEventListener('click', (e) => {
+        e.preventDefault();
+        
+        // Update active tab
+        document.querySelectorAll('.nav-tabs .nav-link').forEach(t => t.classList.remove('active'));
+        e.target.classList.add('active');
+        
+        // Show corresponding form with animation
+        document.querySelectorAll('.form-section').forEach(section => {
+          section.classList.remove('active');
+        });
+        document.getElementById(e.target.dataset.target).classList.add('active');
+      });
+    });
+
+    // Form submission validation
+    document.getElementById('membershipForm').addEventListener('submit', (e) => {
+      const activeForm = document.querySelector('.form-section.active');
+      const formType = activeForm.querySelector('input[name="formType"]').value;
+      
+      // Validate terms checkbox
+      const termsCheckbox = activeForm.querySelector(`input[name="${formType}[agreedToTerms]"]`);
+      if (!termsCheckbox.checked) {
+        alert('Please agree to the terms & conditions');
+        e.preventDefault();
+        return;
+      }
+      
+      // Add any additional validation here
+    });
+
+    // Example: Load districts based on state selection
+    document.querySelectorAll('select[name$="[state]"]').forEach(select => {
+      select.addEventListener('change', function() {
+        // In a real implementation, you would fetch districts for the selected state
+        console.log(`State changed to: ${this.value}`);
+      });
+    });
+  </script>
+
+
+<style>
+    .form-section { 
+      display: none; 
+      animation: fadeIn 0.3s ease-in-out;
+    }
+    .form-section.active { 
+      display: block; 
+    }
+    .nav-tabs .nav-link {
+      color: #495057;
+      /* background-color: green; */
+      font-weight: 500;
+      /* border: none; */
+      padding: 0.75rem 1.5rem;
+    }
+    .nav-tabs .nav-link.active {
+      color: #0d6efd;
+      background-color: green;
+      border-bottom: 3px solid #0d6efd;
+      font-weight: 600;
+    }
+    .form-control:focus, .form-select:focus {
+      border-color: #86b7fe;
+      box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+    }
+    .card {
+      border: none;
+      border-radius: 10px;
+    }
+    .card-header {
+      border-radius: 10px 10px 0 0 !important;
+    }
+    .input-group-text {
+      background-color: #e9ecef;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
