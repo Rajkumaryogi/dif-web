@@ -8,10 +8,10 @@ router.get("/login", adminController.getLogin);
 router.post("/login", adminController.postLogin);
 
 // Admin dashboard (protected)
-router.get("/dashboard", isAdmin, adminController.getDashboard);
+router.get("/dashboard", adminController.getDashboard);
 
 // Admin logout
-router.get("/logout", isAdmin, adminController.logout);
+router.get("/logout", adminController.logout);
 
 
 // Other admin routes...

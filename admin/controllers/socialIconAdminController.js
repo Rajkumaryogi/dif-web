@@ -6,7 +6,7 @@ exports.getAllIcons = async (req, res) => {
   res.render('pages/socialIconsAdmin', {
     icons,
     pageTitle: 'Manage Social Icons',
-    layout: 'admin-layout'
+    layout: 'dashboard-layout'
   });
   
 };
@@ -18,7 +18,7 @@ exports.getEditPage = async (req, res) => {
   res.render('partials/socialIconsEdit', {
     icon,
     pageTitle: 'Edit Social Icon',
-    layout: 'admin-layout'
+    layout: 'dashboard-layout'
   });
 };
 
@@ -40,7 +40,7 @@ exports.updateIcon = async (req, res) => {
 exports.getCreatePage = (req, res) => {
   res.render('partials/socialIconsCreate', {
      pageTitle: 'Add Social Icon',
-     layout: 'admin-layout'
+     layout: 'dashboard-layout'
      });
 };
 

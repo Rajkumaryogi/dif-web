@@ -1,5 +1,6 @@
 const express = require("express");
 const connectDB = require("./config/database");
+const MongoStore = require('connect-mongo');
 const path = require("path");
 const expressLayouts = require("express-ejs-layouts");
 const session = require("express-session");
@@ -27,6 +28,11 @@ app.use(session({
   secret: process.env.SESSION_SECRET || 'mysecret',
   resave: false,
   saveUninitialized: false,
+  store: MongoStore.create({
+    mongoUrl: process.env.MONGO_URI,
+    ttl: 24 * 60 * 60 // 1 day
+  }),
+  cookie: { maxAge: 24 * 60 * 60 * 1000 } // 24 hours
 }));
 
 // EJS setup
@@ -47,8 +53,8 @@ app.use((req, res, next) => {
 });
 
 // Routes
-app.use("/", pageRoutes);
 app.use("/admin", adminRoutes);
+app.use("/", pageRoutes);
 
 // Favicon
 app.get("/favicon.ico", (req, res) => res.status(204));

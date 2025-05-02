@@ -8,7 +8,7 @@ const path = require("path");
 const listContactCards = async (req, res) => {
   const contactCards = await ContactCard.find().sort({ order: 1 });
   res.render('pages/contactCardsAdmin', {
-    layout : "admin-layout",
+    layout : "dashboard-layout",
     pageTitle: "Our Team",
      contactCards,
      });
@@ -17,7 +17,7 @@ const listContactCards = async (req, res) => {
 // Show add form
 const showAddForm = (req, res) => {
   res.render('partials/contactCardsAdd&Edit', {
-    layout : "admin-layout",
+    layout : "dashboard-layout",
     pageTitle: "Add Team Member",
      contactCard: null, // Assuming contactCard is an empty object initially
      });
@@ -64,7 +64,7 @@ const createContactCard = async (req, res) => {
 const showEditForm = async (req, res) => {
   const contactCard = await ContactCard.findById(req.params.id);
   res.render('partials/contactCardsAdd&Edit', { 
-    layout : "admin-layout",
+    layout : "dashboard-layout",
     pageTitle: "Edit Team Member", 
     contactCard, 
 });

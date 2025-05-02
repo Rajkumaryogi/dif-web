@@ -1,6 +1,10 @@
 const express = require("express");
 const router = express.Router();
 const heroController = require("../controllers/heroSlideAdminController");
+const getMulterUpload = require("../../config/multer");
+
+const upload = getMulterUpload('hero-slides');
+
 
 // GET all slides
 router.get("/", heroController.getAllSlides);
@@ -9,13 +13,13 @@ router.get("/", heroController.getAllSlides);
 router.get("/create", heroController.renderCreateSlide);
 
 // POST create slide
-router.post("/create", heroController.createSlide);
+router.post("/create", upload.single('image'), heroController.createSlide);
 
 // GET edit slide
 router.get("/edit/:id", heroController.renderEditSlide);
 
 // POST update slide
-router.post("/edit/:id", heroController.updateSlide);
+router.post("/edit/:id", upload.single('image'), heroController.updateSlide);
 
 // DELETE slide
 router.post("/delete/:id", heroController.deleteSlide);

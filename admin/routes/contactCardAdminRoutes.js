@@ -1,8 +1,9 @@
 const express = require('express');
 const router = express.Router();
-const upload = require("../../config/multer");
 const contactCardController = require('../controllers/contactCardAdminController');
+const getMulterUpload = require("../../config/multer");
 
+const upload = getMulterUpload('contact-cards');
 // Admin auth middleware if needed
 // const isAdmin = require('../middleware/isAdmin');
 

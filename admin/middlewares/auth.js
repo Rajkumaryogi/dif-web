@@ -1,24 +1,38 @@
-const { verifyToken } = require('../../config/auth');
+const { verifyToken } = require("../../middleware/auth"); // Adjust path if needed
+const AdminUser = require("../models/AdminUser");
 const createError = require('http-errors');
 
 const isAdmin = async (req, res, next) => {
+  let token;
+
+  // Option 1: Get token from Authorization header (Bearer token)
+  if (
+    req.headers.authorization &&
+    req.headers.authorization.startsWith("Bearer ")
+  ) {
+    try {
+      token = req.headers.authorization.split(" ")[1];
+    } catch (error) {
+      return next(createError(401, "Not authorized, token malformed"));
+    }
+  }
+
+  // Option 2: Get token from HTTP-only cookie (if you chose this in postLogin)
+  if (!token && req.cookies && req.cookies.adminToken) {
+    token = req.cookies.adminToken;
+  }
+
+  if (!token) {
+    return next(createError(401, "Not authorized, no token"));
+  }
+
   try {
-    // 1. Get token from cookie/header
-    const token = req.cookies.admin_jwt || req.headers.authorization?.split(' ')[1];
-    if (!token) throw createError(401, 'Not authorized');
-
-    // 2. Verify token
     const decoded = verifyToken(token);
-    
-    // 3. Attach user to request
-    req.user = {
-      id: decoded.id,
-      isSuperAdmin: decoded.isSuperAdmin
-    };
-
+    req.admin = await AdminUser.findById(decoded.id).select("-password"); // Exclude password for security
     next();
   } catch (error) {
-    next(createError(401, 'Not authorized'));
+    console.error(error);
+    return next(createError(401, "Not authorized, token failed"));
   }
 };
 
