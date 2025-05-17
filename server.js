@@ -53,6 +53,9 @@ app.use((req, res, next) => {
 });
 
 // Routes
+// Razorpay routes
+const razorpayRoutes = require("./routes/razorpayRoutes");
+app.use("/razorpay", razorpayRoutes);
 app.use("/admin", adminRoutes);
 app.use("/", pageRoutes);
 
