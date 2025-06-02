@@ -23,7 +23,7 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use("/uploads", express.static("uploads"));
 
 
-// Session middleware (for login system)
+// Session middleware (for login system) 
 app.use(session({
   secret: process.env.SESSION_SECRET || 'mysecret',
   resave: false,
@@ -56,6 +56,11 @@ app.use((req, res, next) => {
 // Razorpay routes
 const razorpayRoutes = require("./routes/razorpayRoutes");
 app.use("/razorpay", razorpayRoutes);
+// Add this with other route imports
+const newsletterRoutes = require('./routes/newsletterRoutes');
+
+// Add this with other route middleware
+app.use('/subscribe', newsletterRoutes);
 app.use("/admin", adminRoutes);
 app.use("/", pageRoutes);
 
