@@ -4,11 +4,17 @@ const { generateToken } = require("../../config/auth");
 const isAdmin = require("../middlewares/isAdmin");
 
 exports.getLogin = (req, res) => {
+  // ✅ Check if admin is already logged in
+  if (req.session.admin) {
+    return res.redirect("/admin/dashboard");
+  }
+
   res.render("login", {
-    layout: "admin-layout", // this should exist in admin/views/admin-layout.ejs
+    layout: "admin-layout",
     error: null
   });
 };
+
 
 exports.postLogin = async (req, res) => {
   const { email, password } = req.body;
