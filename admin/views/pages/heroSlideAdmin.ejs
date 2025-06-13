@@ -30,9 +30,13 @@
           </form>
         </td>
         <td>
-          <a href="/admin/heroSlideAdmin/edit/<%= slide._id %>" class="btn btn-primary btn-sm">Edit</a>
+          <a href="/admin/heroSlideAdmin/edit/<%= slide._id %>" class="btn btn-sm">
+            <i class="fas fa-edit"></i>
+          </a>
           <form action="/admin/heroSlideAdmin/delete/<%= slide._id %>" method="POST" style="display:inline;">
-            <button class="btn btn-danger btn-sm" onclick="return confirm('Delete this slide?')">Delete</button>
+            <button class="btn btn-sm" onclick="return confirm('Delete this slide?')">
+              <i class="fas fa-trash"></i>
+            </button>
           </form>
         </td>
       </tr>

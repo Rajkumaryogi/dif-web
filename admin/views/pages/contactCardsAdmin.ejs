@@ -32,7 +32,7 @@
 
 <div class="container mt-4">
     <div class="d-flex justify-content-between align-items-center mb-4">
-      <h2 class="mb-0">Contact Cards</h2>
+      <p class="mb-0">Our Team</p>
       <a href="/admin/contact-cards/add" class="btn btn-success">
         <i class="fas fa-plus me-2"></i>Add New Card
       </a>
@@ -44,18 +44,17 @@
           <table class="table table-hover align-middle mb-0">
             <thead class="table-light">
               <tr>
-                <th width="80">Order</th>
                 <th>Name</th>
-                <th>Position</th>
                 <th>Email</th>
                 <th>Department</th>
-                <th width="150">Actions</th>
+                <th>Position</th>
+                <th width="80">Order</th>
+                <th width="100">Actions</th>
               </tr>
             </thead>
             <tbody>
               <% contactCards.forEach(card => { %>
                 <tr>
-                  <td class="fw-bold"><%= card.order %></td>
                   <td>
                     <div class="d-flex align-items-center">
                       <img src="<%= card.imageUrl || '/images/default-avatar.jpg' %>" 
@@ -66,29 +65,31 @@
                       <%= card.name %>
                     </div>
                   </td>
-                  <td><%= card.position %></td>
                   <td>
                     <% if (card.email) { %>
                       <a href="mailto:<%= card.email %>" class="text-decoration-none">
                         <%= card.email %>
                       </a>
-                    <% } else { %>
-                      <span class="text-muted">None</span>
-                    <% } %>
-                  </td>
-                  <td><%= card.department || '-' %></td>
+                      <% } else { %>
+                        <span class="text-muted">None</span>
+                        <% } %>
+                      </td>
+                      <td><%= card.department || '-' %></td>
+                      <td><%= card.position %></td>
+                  <td class="fw-bold"><%= card.order %></td>
                   <td>
                     <div class="d-flex gap-2">
-                      <a href="/admin/contact-cards/edit/<%= card._id %>" class="btn btn-sm btn-warning">
+                      <a href="/admin/contact-cards/edit/<%= card._id %>" class="btn btn-sm">
                         <i class="fas fa-edit"></i>
                       </a>
                       <a href="/admin/contact-cards/delete/<%= card._id %>" 
-                         class="btn btn-sm btn-danger" 
+                         class="btn btn-sm" 
                          onclick="return confirm('Are you sure you want to delete this contact card?')">
                         <i class="fas fa-trash-alt"></i>
                       </a>
                     </div>
                   </td>
+                  
                 </tr>
               <% }) %>
             </tbody>
@@ -100,13 +101,13 @@
   
   <style>
     .table {
-      font-size: 0.9rem;
+      /* font-size: 0.9rem; */
     }
     .table th {
-      font-weight: 500;
-      text-transform: uppercase;
-      font-size: 0.8rem;
-      letter-spacing: 0.5px;
+      /* font-weight: 500; */
+      /* text-transform: uppercase; */
+      /* font-size: 0.8rem; */
+      /* letter-spacing: 0.5px; */
     }
     .table td {
       vertical-align: middle;

@@ -6,11 +6,14 @@ const path = require("path");
 
 // List all contact cards
 const listContactCards = async (req, res) => {
-  const contactCards = await ContactCard.find().sort({ order: 1 });
+  const { department } = req.query;
+  const filter = department ? { department } : {};
+  const contactCards = await ContactCard.find(filter).sort({ order: 1 });
   res.render('pages/contactCardsAdmin', {
     layout : "dashboard-layout",
     pageTitle: "Our Team",
      contactCards,
+     department
      });
 };
 

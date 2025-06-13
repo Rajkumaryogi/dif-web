@@ -1,50 +1,108 @@
-<nav id="sidebar" class="bg-dark text-white p-3">
-    <div class="sidebar-header mb-4">
-      <!-- Logo on the left -->
-      <a class="navbar-brand" href="/">
-        <img src="/dif_logo.webp" alt="NGO Logo" height="110" class="d-inline-block align-top">
-      </a>
+<nav id="sidebar" class="sidebar sidebar-dark border-end">
+  <div class="sidebar-header border-bottom">
+    <a class="navbar-brand" href="/">
+      <img src="/dif_logo.webp" alt="NGO Logo" height="30" class="d-inline-block align-top">
+    </a>
+  </div>
 
-    </div>
-    <ul class="nav flex-column">
-      <li class="nav-item">
-        <a class="nav-link text-white" href="/admin/dashboard">Dashboard</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link text-white" href="/admin/heroSlideAdmin"> Hero Slider</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link text-white" href="/admin/socialIconsAdmin"> Social Icons</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link text-white" href="/admin/contact-cards"> Team </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link text-white" href="/admin/mission-vision">About Us</a>
-      </li>
-      
-      <li class="nav-item">
-        <a class="nav-link text-white" href="/admin/contact-cards">  School Scholars </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link text-white" href="/admin/contact-cards">  Membership page </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link text-white" href="/admin/contact-cards">  Event Timeline </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link text-white" href="/admin/contact-cards">  DIF ThinkTank </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link text-white" href="/admin/contact-cards">  Projects </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link text-white" href="/admin/contact-cards">  Internship </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link text-white" href="/admin/contact-cards">  Contact Us </a>
-      </li>
-      <!-- Add more items here -->
-    </ul>
-  </nav>
-  
+  <ul class="nav flex-column">
+    <li class="nav-item">
+      <a class="nav-link text-white" href="/admin/dashboard">
+        <svg class="icon me-2"><use xlink:href="/coreui-icons/sprites/free.svg#cil-speedometer"></use></svg>
+        Dashboard
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link text-white" href="/admin/contact-cards">
+        <svg class="icon me-2"><use xlink:href="/coreui-icons/sprites/free.svg#cil-people"></use></svg>
+        Other Admins
+      </a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-link text-white" href="/admin/heroSlideAdmin">
+        <svg class="icon me-2"><use xlink:href="/coreui-icons/sprites/free.svg#cil-list-rich"></use></svg>
+        Hero Slider
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link text-white" href="/admin/socialIconsAdmin">
+        <svg class="icon me-2"><use xlink:href="/coreui-icons/sprites/free.svg#cil-share"></use></svg>
+        Socialicons
+      </a>
+    </li>
+
+    <!-- Team Section with Dropdown -->
+    <li class="nav-item">
+      <a class="nav-link text-white" data-bs-toggle="collapse" href="#teamSubmenu" role="button" aria-expanded="false" aria-controls="teamSubmenu">
+        <svg class="icon me-2"><use xlink:href="/coreui-icons/sprites/free.svg#cil-people"></use></svg>
+        Our Team
+      </a>
+      <div class="collapse ps-3" id="teamSubmenu">
+        <ul class="btn-group-vertical w-100">
+          <a class="btn btn-outline-light btn-sm my-1 text-start" href="/admin/contact-cards?department=Executive">
+            <svg class="icon me-2"><use xlink:href="/coreui-icons/sprites/free.svg#cil-user"></use></svg>
+            Executive
+          </a>
+          <a class="btn btn-outline-light btn-sm my-1 text-start" href="/admin/contact-cards?department=Coordinator">
+            <svg class="icon me-2"><use xlink:href="/coreui-icons/sprites/free.svg#cil-user"></use></svg>
+            Coordinators
+          </a>
+          <a class="btn btn-outline-light btn-sm my-1 text-start" href="/admin/contact-cards?department=Information%20Technology">
+            <svg class="icon me-2"><use xlink:href="/coreui-icons/sprites/free.svg#cil-devices"></use></svg>
+            Information Technology
+          </a>
+        </ul>
+      </div>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-link text-white" href="/admin/mission-vision">
+        <svg class="icon me-2"><use xlink:href="/coreui-icons/sprites/free.svg#cil-info"></use></svg>
+        About Us
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link text-white" href="/admin/contact-cards?section=scholars">
+        <svg class="icon me-2"><use xlink:href="/coreui-icons/sprites/free.svg#cil-education"></use></svg>
+        School Scholars
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link text-white" href="/admin/contact-cards?section=membership">
+        <svg class="icon me-2"><use xlink:href="/coreui-icons/sprites/free.svg#cil-address-book"></use></svg>
+        Membership Page
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link text-white" href="/admin/contact-cards?section=timeline">
+        <svg class="icon me-2"><use xlink:href="/coreui-icons/sprites/free.svg#cil-chart-line"></use></svg>
+        Event Timeline
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link text-white" href="/admin/contact-cards?section=thinktank">
+        <svg class="icon me-2"><use xlink:href="/coreui-icons/sprites/free.svg#cil-lightbulb"></use></svg>
+        DIF ThinkTank
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link text-white" href="/admin/contact-cards?section=projects">
+        <svg class="icon me-2"><use xlink:href="/coreui-icons/sprites/free.svg#cil-task"></use></svg>
+        Projects
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link text-white" href="/admin/contact-cards?section=internship">
+        <svg class="icon me-2"><use xlink:href="/coreui-icons/sprites/free.svg#cil-briefcase"></use></svg>
+        Internship
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link text-white" href="/admin/contact-cards?section=contact">
+        <svg class="icon me-2"><use xlink:href="/coreui-icons/sprites/free.svg#cil-contact"></use></svg>
+        Contact Us
+      </a>
+    </li>
+  </ul>
+</nav>

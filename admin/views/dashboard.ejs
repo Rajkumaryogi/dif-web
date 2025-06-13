@@ -1,9 +1,194 @@
-<dashboard>
-                <h1 class="mt-4">Dashboard</h1>
-                <div class="dashboard-container">
-                    <h2>Welcome, <%= admin.email %></h2>
-                    <p>Super Admin: <%= admin.isSuperAdmin %></p>
-                    <a href="/admin/logout">Logout</a>
+<div class="dashboard-container">
+    <nav aria-label="breadcrumb" class="mt-0 pt-0 border-bottom">
+        <ol class="breadcrumb">  
+            <li class="breadcrumb-item">
+                <a href="/admin/dashboard">Home</a>
+            </li>  
+            <li class="breadcrumb-item active">
+                <span>Dashboard</span>
+            </li>
+        </ol>
+    </nav>
+</div>
+<div class="wrapper d-flex flex-column">
+    <div class="body flex-grow-1">
+      <div class="container-lg ">
+        <!-- Breadcrumb -->
+        <!-- Stats Cards -->
+        <div class="row g-4 my-1">
+          <!-- Users Card -->
+          <div class="col-sm-6 col-xl-3">
+            <div class="card text-white bg-primary">
+              <div class="card-body pb-0 d-flex justify-content-between align-items-start">
+                <div>
+                  <div class="fs-4 fw-semibold">26K <span class="fs-6 fw-normal">(-12.4%
+                      <svg class="icon">
+                        <use xlink:href="/coreui-icons/sprites/free.svg#cil-arrow-bottom"></use>
+                      </svg>)</span></div>
+                  <div>Users</div>
                 </div>
-           
-</dashboard>
+                <div class="dropdown">
+                  <button class="btn btn-transparent text-white p-0" type="button" data-coreui-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <svg class="icon">
+                      <use xlink:href="/coreui-icons/sprites/free.svg#cil-options"></use>
+                    </svg>
+                  </button>
+                  <div class="dropdown-menu dropdown-menu-end">
+                    <a class="dropdown-item" href="#">Action</a>
+                    <a class="dropdown-item" href="#">Another action</a>
+                    <a class="dropdown-item" href="#">Something else here</a>
+                  </div>
+                </div>
+              </div>
+              <div class="c-chart-wrapper mt-3 mx-3" style="height:70px;">
+                <canvas class="chart" id="card-chart1" height="70"></canvas>
+              </div>
+            </div>
+          </div>
+
+          <!-- Income Card -->
+          <div class="col-sm-6 col-xl-3">
+            <div class="card text-white bg-info">
+              <div class="card-body pb-0 d-flex justify-content-between align-items-start">
+                <div>
+                  <div class="fs-4 fw-semibold">$6.200 <span class="fs-6 fw-normal">(40.9%
+                      <svg class="icon">
+                        <use xlink:href="/coreui-icons/sprites/free.svg#cil-arrow-top"></use>
+                      </svg>)</span></div>
+                  <div>Income</div>
+                </div>
+                <div class="dropdown">
+                  <button class="btn btn-transparent text-white p-0" type="button" data-coreui-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <svg class="icon">
+                      <use xlink:href="/coreui-icons/sprites/free.svg#cil-options"></use>
+                    </svg>
+                  </button>
+                  <div class="dropdown-menu dropdown-menu-end">
+                    <a class="dropdown-item" href="#">Action</a>
+                    <a class="dropdown-item" href="#">Another action</a>
+                    <a class="dropdown-item" href="#">Something else here</a>
+                  </div>
+                </div>
+              </div>
+              <div class="c-chart-wrapper mt-3 mx-3" style="height:70px;">
+                <canvas class="chart" id="card-chart2" height="70"></canvas>
+              </div>
+            </div>
+          </div>
+
+          <!-- Additional Cards (add more as needed) -->
+          <div class="col-sm-6 col-xl-3">
+            <div class="card text-white bg-warning">
+              <div class="card-body pb-0 d-flex justify-content-between align-items-start">
+                <div>
+                  <div class="fs-4 fw-semibold">2.49% <span class="fs-6 fw-normal">(84.7%
+                      <svg class="icon">
+                        <use xlink:href="/coreui-icons/sprites/free.svg#cil-arrow-top"></use>
+                      </svg>)</span></div>
+                  <div>Conversion Rate</div>
+                </div>
+                <div class="dropdown">
+                  <button class="btn btn-transparent text-white p-0" type="button" data-coreui-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <svg class="icon">
+                      <use xlink:href="/coreui-icons/sprites/free.svg#cil-options"></use>
+                    </svg>
+                  </button>
+                  <div class="dropdown-menu dropdown-menu-end">
+                    <a class="dropdown-item" href="#">Action</a>
+                    <a class="dropdown-item" href="#">Another action</a>
+                    <a class="dropdown-item" href="#">Something else here</a>
+                  </div>
+                </div>
+              </div>
+              <div class="c-chart-wrapper mt-3 mx-3" style="height:70px;">
+                <canvas class="chart" id="card-chart3" height="70"></canvas>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm-6 col-xl-3">
+            <div class="card text-white bg-danger">
+              <div class="card-body pb-0 d-flex justify-content-between align-items-start">
+                <div>
+                  <div class="fs-4 fw-semibold">44K <span class="fs-6 fw-normal">(-23.6%
+                      <svg class="icon">
+                        <use xlink:href="/coreui-icons/sprites/free.svg#cil-arrow-bottom"></use>
+                      </svg>)</span></div>
+                  <div>Sessions</div>
+                </div>
+                <div class="dropdown">
+                  <button class="btn btn-transparent text-white p-0" type="button" data-coreui-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <svg class="icon">
+                      <use xlink:href="/coreui-icons/sprites/free.svg#cil-options"></use>
+                    </svg>
+                  </button>
+                  <div class="dropdown-menu dropdown-menu-end">
+                    <a class="dropdown-item" href="#">Action</a>
+                    <a class="dropdown-item" href="#">Another action</a>
+                    <a class="dropdown-item" href="#">Something else here</a>
+                  </div>
+                </div>
+              </div>
+              <div class="c-chart-wrapper mt-3 mx-3" style="height:70px;">
+                <canvas class="chart" id="card-chart4" height="70"></canvas>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p>Super Admin: <%= admin.isSuperAdmin %></p>
+                    <a href="/admin/logout">Logout</a>
+  </div>
+
+  
+  <!-- Scripts -->
+  <script src="/coreui/js/coreui.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
+    // Initialize charts
+    document.addEventListener('DOMContentLoaded', function() {
+      // Chart initialization code would go here
+      // Example for card-chart1:
+      new Chart(document.getElementById('card-chart1'), {
+        type: 'line',
+        data: {
+          labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+          datasets: [{
+            backgroundColor: 'rgba(255,255,255,.2)',
+            borderColor: 'rgba(255,255,255,.55)',
+            data: [65, 59, 84, 84, 51, 55, 40]
+          }]
+        },
+        options: {
+          maintainAspectRatio: false,
+          plugins: {
+            legend: {
+              display: false
+            }
+          },
+          scales: {
+            x: {
+              display: false
+            },
+            y: {
+              display: false
+            }
+          },
+          elements: {
+            line: {
+              borderWidth: 2,
+              tension: 0.4
+            },
+            point: {
+              radius: 0,
+              hitRadius: 10,
+              hoverRadius: 4
+            }
+          }
+        }
+      });
+
+      // Initialize other charts similarly...
+    });
+  </script>

@@ -82,12 +82,12 @@
               <%= icon.color %>
             </td>
             <td class="d-flex gap-2">
-              <a href="/admin/socialIconsAdmin/edit/<%= icon._id %>" class="btn btn-sm btn-warning flex-grow-1">
-                <i class="fas fa-edit"></i> Edit
+              <a href="/admin/socialIconsAdmin/edit/<%= icon._id %>" class="btn btn-sm">
+                <i class="fas fa-edit"></i>
               </a>
               <form method="POST" action="/admin/socialIconsAdmin/delete/<%= icon._id %>" class="d-inline">
-                <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Delete this icon?')">
-                  <i class="fas fa-trash-alt"></i>
+                <button type="submit" class="btn btn-sm" onclick="return confirm('Delete this icon?')">
+                  <i class="fas fa-trash"></i>
                 </button>
               </form>
             </td>

@@ -11,9 +11,12 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@coreui/coreui": "^5.4.0",
+    "@coreui/icons": "^3.0.1",
     "bcryptjs": "^3.0.2",
     "body-parser": "^1.20.3",
     "bootstrap": "^5.3.3",
+    "bootstrap-icons": "^1.13.1",
     "connect-livereload": "^0.6.1",
     "connect-mongo": "^5.1.0",
     "dotenv": "^16.4.7",

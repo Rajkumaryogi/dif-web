@@ -63,12 +63,12 @@
                 </td>
                 <td>
                   <div class="d-flex gap-2">
-                    <a href="/admin/mission-vision/edit/<%= item._id %>" class="btn btn-sm btn-warning flex-grow-1">
+                    <a href="/admin/mission-vision/edit/<%= item._id %>" class="btn btn-sm">
                       <i class="fas fa-edit"></i>
                     </a>
                     <form action="/admin/mission-vision/delete/<%= item._id %>" method="POST" class="d-inline">
-                      <button class="btn btn-sm btn-danger" onclick="return confirm('Are you sure?')">
-                        <i class="fas fa-trash-alt"></i>
+                      <button class="btn btn-sm" onclick="return confirm('Are you sure?')">
+                        <i class="fas fa-trash"></i>
                       </button>
                     </form>
                   </div>

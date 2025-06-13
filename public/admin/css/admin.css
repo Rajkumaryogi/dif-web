@@ -32,16 +32,8 @@
   }
   
   #sidebar {
-    width: 250px;
+    /* width: 250px; */
     transition: all 0.3s;
   }
   
-  #admin-wrapper.toggled #sidebar {
-    margin-left: -250px;
-  }
-  
-  #page-content-wrapper {
-    flex: 1;
-    overflow-x: hidden;
-  }
   

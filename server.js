@@ -20,6 +20,9 @@ connectDB();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static(path.join(__dirname, "public")));
+app.use('/coreui', express.static(__dirname + '/node_modules/@coreui/coreui'));
+app.use('/coreui-icons', express.static(__dirname + '/node_modules/@coreui/icons'));
+
 app.use("/uploads", express.static("uploads"));
 
 
