@@ -3,6 +3,10 @@ const bcrypt = require('bcryptjs');
 const { Schema } = mongoose;
 
 const AdminUserSchema = new Schema({
+  name: {
+    type: String,
+    required: true
+  },
   email: { 
     type: String, 
     required: true, 
@@ -14,9 +18,43 @@ const AdminUserSchema = new Schema({
     required: true,
     minlength: 8 
   },
+  dob: {
+    type: String, // Storing as string in dd/mm/yyyy format
+    required: true,
+    match: /^(0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[012])\/(19|20)\d\d$/
+  },
+  phone: {
+    type: String,
+    required: true
+  },
   isSuperAdmin: { 
     type: Boolean, 
     default: false 
+  },
+  isAdmin: {
+    type: Boolean,
+    default: true
+  },
+  profileStatus: {
+    type: String,
+    enum: ['Active', 'Inactive', 'Locked'],
+    default: 'Active'
+  },
+  department: {
+    type: String,
+    required: true
+  },
+  position: {
+    type: String,
+    required: true
+  },
+  designation: {
+    type: String,
+    required: true
+  },
+  order: {
+    type: Number,
+    default: 0
   },
   lastLogin: Date
 }, { timestamps: true });

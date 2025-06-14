@@ -1,0 +1,13 @@
+
+    <div class="wrapper">
+        
+        <div class="main-content">
+            <h1>Welcome, <%= admin.name %></h1>
+            <p>Department: <%= admin.department %></p>
+            <p>Position: <%= admin.position %></p>
+            <!-- Add more admin-specific content here -->
+        </div>
+    </div>
+    <p>Super Admin: <%= admin.isSuperAdmin %></p>
+    <p>Admin: <%= admin.isAdmin %></p>
+    <a href="/admin/logout">Logout</a>

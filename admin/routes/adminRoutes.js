@@ -9,6 +9,7 @@ router.post("/login", adminController.postLogin);
 
 // Admin dashboard (protected)
 router.get("/dashboard", adminController.getDashboard);
+router.get("/admindashboard", adminController.getAdminDashboard);
 
 // Admin logout
 router.get("/logout", adminController.logout);
@@ -31,5 +32,6 @@ router.use("/mission-vision", isAdmin, missionVisionRoutes);
 const contactCardRoutes = require("./contactCardAdminRoutes");
 router.use("/contact-cards", isAdmin, contactCardRoutes);
 
-
+const adminUserRoutes = require("./adminUserRoutes");
+router.use("/admin-users", isAdmin, adminUserRoutes);
 module.exports = router;

@@ -32,10 +32,10 @@
   </tbody>
 </table> -->
 
-<div class="container mt-4">
+<div class="container mt-1">
   <div class="d-flex justify-content-between align-items-center mb-4">
-    <h1 class="mb-0"><%= pageTitle %></h1>
-    <a href="/admin/socialIconsAdmin/create" class="btn btn-primary">
+    <li class="mb-0"><%= pageTitle %></li>
+    <a href="/admin/socialIconsAdmin/create" class="btn btn-success">
       <i class="fas fa-plus"></i> Add New Icon
     </a>
   </div>
@@ -58,7 +58,7 @@
           <tr>
             <td><%= icon.order %></td>
             <td><%= icon.name %></td>
-            <td><i class="<%= icon.iconClass %> fs-4" style="color: <%= icon.color %>"></i></td>
+            <td><i class="<%= icon.iconClass %> fs-4" style="color:<%= icon.color %>"></i></td>
             <td>
               <a href="<%= icon.url %>" target="_blank" class="text-truncate" style="max-width: 150px; display: inline-block;">
                 <%= icon.url %>

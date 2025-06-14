@@ -32,7 +32,7 @@
 
 <div class="container mt-4">
     <div class="d-flex justify-content-between align-items-center mb-4">
-      <p class="mb-0">Our Team</p>
+      <li class="mb-0">Our Team</li>
       <a href="/admin/contact-cards/add" class="btn btn-success">
         <i class="fas fa-plus me-2"></i>Add New Card
       </a>
@@ -42,7 +42,7 @@
       <div class="card-body p-0">
         <div class="table-responsive">
           <table class="table table-hover align-middle mb-0">
-            <thead class="table-light">
+            <thead class="table">
               <tr>
                 <th>Name</th>
                 <th>Email</th>
@@ -85,7 +85,7 @@
                       <a href="/admin/contact-cards/delete/<%= card._id %>" 
                          class="btn btn-sm" 
                          onclick="return confirm('Are you sure you want to delete this contact card?')">
-                        <i class="fas fa-trash-alt"></i>
+                        <i class="fas fa-trash"></i>
                       </a>
                     </div>
                   </td>

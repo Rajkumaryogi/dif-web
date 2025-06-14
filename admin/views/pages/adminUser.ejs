@@ -1,0 +1,111 @@
+<!-- <h2>Admin Users</h2>
+<a href="/admin/contact-cards/add" class="btn btn-success mb-3"> + Add New Card</a>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Phone</th>
+      <th>DOB</th>
+      <th>Super admin</th>
+      <th>Admin</th>
+      <th>Department</th>
+      <th>Position</th>
+      <th>Designation</th>
+      <th>Profile Status</th>
+      <th>Last Login</th>
+      <th>Order</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% adminUsers.forEach(user => { %>
+        <tr>
+          <td><%= user.name %></td>
+          <td><%= user.email %></td>
+          <td><%= user.phone %></td>
+          <td><%= user.dob %></td>
+          <td><%= user.isSuperAdmin %></td>
+          <td><%= user.isAdmin %></td>
+          <td><%= user.department %></td>
+          <td><%= user.position %></td>
+          <td><%= user.designation %></td>
+          <td><%= user.profileStatus %></td>
+          <td><%= user.lastLogin %></td>
+          <td><%= user.order %></td>
+          <td>
+            <a href="/admin/contact-cards/edit/<%= user._id %>" class="btn btn-sm">
+              <i class="fas fa-edit"></i>
+            </a>
+            <a href="/admin/contact-cards/delete/<%= user._id %>" class="btn btn-sm" onclick="return confirm('Are you sure?')">
+              <i class="fas fa-trash"></i>
+            </a>
+          </td>
+        </tr>
+      <% }) %>
+    </tbody>
+  </table> -->
+  <div class="d-flex justify-content-between align-items-center">
+  <li>Admin Users</li>
+<a href="/admin/admin-users/add" class="btn btn-success mb-1">
+  <i class="fas fa-plus"></i> Add admin
+</a>
+  </div>
+<div class="table-responsive">
+  <table class="table table-striped table-bordered table-hover">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Phone</th>
+        <th scope="col">DOB</th>
+        <th scope="col">Super Admin</th>
+        <th scope="col">Admin</th>
+        <th scope="col">Department</th>
+        <th scope="col">Position</th>
+        <th scope="col">Designation</th>
+        <th scope="col">Profile Status</th>
+        <th scope="col">Last Login</th>
+        <th scope="col">Order</th>
+        <th scope="col" class="text-center">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% adminUsers.forEach(user => { %>
+        <tr>
+          <td><%= user.name %></td>
+          <td><a href="mailto:<%= user.email %>"><%= user.email %></a></td>
+          <td><%= user.phone %></td>
+          <td><%= user.dob %></td>
+          <td class="text-center"><%= user.isSuperAdmin %></td>
+          <td class="text-center"><%= user.isAdmin %></td>
+          <td><%= user.department %></td>
+          <td><%= user.position %></td>
+          <td><%= user.designation %></td>
+          <td>
+            <% if(user.profileStatus === 'Active') { %>
+              <span class="badge badge-success">Active</span>
+            <% } else if(user.profileStatus === 'Inactive') { %>
+              <span class="badge badge-warning">Inactive</span>
+            <% } else { %>
+              <span class="badge badge-danger">Locked</span>
+            <% } %>
+          </td>
+          <td><%= user.lastLogin ? new Date(user.lastLogin).toLocaleString() : 'Never' %></td>
+          <td class="text-center"><%= user.order %></td>
+          <td class="text-center">
+            <div class="btn-group" role="group">
+              <a href="/admin/admin-users/edit/<%= user._id %>" class="btn btn-sm" title="Edit">
+                <i class="fas fa-edit"></i>
+              </a>
+              <a href="/admin/admin-users/delete/<%= user._id %>" class="btn btn-sm" title="Delete" onclick="return confirm('Are you sure you want to delete this user?')">
+                <i class="fas fa-trash"></i>
+              </a>
+            </div>
+          </td>
+        </tr>
+      <% }) %>
+    </tbody>
+  </table>
+</div>
