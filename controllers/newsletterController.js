@@ -56,7 +56,7 @@ exports.subscribe = async (req, res) => {
 };
 
 async function sendVerificationEmail(subscriber) {
-    const verificationUrl = `${process.env.BASE_URL}/verify-subscription?token=${subscriber.verificationToken}`;
+    // const verificationUrl = `${process.env.BASE_URL}/verify-subscription?token=${subscriber.verificationToken}`;
     
     const mailOptions = {
         from: `"${process.env.EMAIL_SENDER_NAME}" <${process.env.EMAIL_USER}>`,
@@ -65,16 +65,9 @@ async function sendVerificationEmail(subscriber) {
         html: `
             <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
                 <h2 style="color: #5983e8;">Thanks for subscribing!</h2>
-                <p>Please confirm your subscription by clicking the button below:</p>
-                <a href="${verificationUrl}" 
-                   style="display: inline-block; padding: 10px 20px; 
-                          background: #5983e8; color: white; 
-                          text-decoration: none; border-radius: 5px;">
-                    Confirm Subscription
-                </a>
                 <p>If you didn't request this, please ignore this email.</p>
                 <p style="margin-top: 30px; color: #777;">
-                    <small>This link will expire in 24 hours.</small>
+                    <small>Best regards DHARTI INTERNATIONAL FOUNDATION</small>
                 </p>
             </div>
         `
