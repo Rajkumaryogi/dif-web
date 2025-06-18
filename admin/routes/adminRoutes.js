@@ -6,6 +6,10 @@ const isAdmin = require("../middlewares/isAdmin");
 // Admin login
 router.get("/login", adminController.getLogin);
 router.post("/login", adminController.postLogin);
+router.get("/forget-password", adminController.getForgetPass);
+router.post("/forget-password", adminController.postForgetPass);
+router.get("/reset-password/:token", adminController.getResetPassword);
+router.post("/reset-password/:token", adminController.postResetPassword);
 
 // Admin dashboard (protected)
 router.get("/dashboard", adminController.getDashboard);

@@ -26,41 +26,41 @@ const showAddForm = (req, res) => {
      });
 };
 
-// Create a new admin
+// In createAdminUser
 const createAdminUser = async (req, res) => {
   try {
-    const { name, email, phone, dob, department, position, designation,profileStatus, order } = req.body;
+    const { name, email, phone, dob, department, position, designation, profileStatus, order } = req.body;
     
-    // Handle checkbox values - they will be "true" when checked, undefined when unchecked
-    // Handle checkbox values
-    const isSuperAdmin = req.body.isSuperAdmin === 'on' || req.body.isSuperAdmin === true;
-    const isAdmin = req.body.isAdmin === 'on' || req.body.isAdmin === true;
+    // Correct checkbox handling
+    const isSuperAdmin = req.body.isSuperAdmin === 'on';
+    const isAdmin = req.body.isAdmin === 'on';
     
     const adminUser = new AdminUser({
-        name,
-        email,
-        phone,
-        dob,
-        isSuperAdmin,
-        isAdmin,
-        department,
-        position,
-        designation,
-        profileStatus: profileStatus || 'Active', // Default to 'Active' if not provided
-        order: order || 0,
-        password: req.body.password // Make sure to hash this in your pre-save hook
+      name,
+      email,
+      phone,
+      dob,
+      isSuperAdmin,
+      isAdmin,
+      department,
+      position,
+      designation,
+      profileStatus: profileStatus || 'Active',
+      order: order || 0,
+      password: req.body.password
     });
 
     await adminUser.save();
     res.redirect('/admin/admin-users');
-} catch (err) {
+  } catch (err) {
     console.error('Error creating admin user:', err);
-    res.render('adminUsersAdd&Edit', { 
-        layout: 'admin-layout',
-        error: err.message,
-        adminUser: req.body 
+    res.render('partials/adminUsersAdd&Edit', { 
+      layout: 'dashboard-layout',
+      error: err.message,
+      adminUser: req.body,
+      pageTitle: "Add new admin"
     });
-}
+  }
 };
 
 // Show edit form
@@ -73,45 +73,44 @@ const showEditForm = async (req, res) => {
      });
 };
 
-//update admin user
+/// In updateAdminUser
 const updateAdminUser = async (req, res) => {
   try {
     const { name, email, phone, dob, department, position, designation, profileStatus, order } = req.body;
     
-    // Handle checkbox values
-    // Handle checkbox values
-    const isSuperAdmin = req.body.isSuperAdmin === 'on' || req.body.isSuperAdmin === true;
-    const isAdmin = req.body.isAdmin === 'on' || req.body.isAdmin === true;
+    // Correct checkbox handling
+    const isSuperAdmin = req.body.isSuperAdmin === 'on';
+    const isAdmin = req.body.isAdmin === 'on';
     
     const adminUser = await AdminUser.findByIdAndUpdate(
-        req.params.id,
-        {
-            name,
-            email,
-            phone,
-            dob,
-            isSuperAdmin,
-            isAdmin,
-            department,
-            position,
-            designation,
-            profileStatus,  // Include profileStatus in update
-            order: order || 0,
-        },
-        { new: true }
+      req.params.id,
+      {
+        name,
+        email,
+        phone,
+        dob,
+        isSuperAdmin,
+        isAdmin,
+        department,
+        position,
+        designation,
+        profileStatus,
+        order: order || 0,
+      },
+      { new: true, runValidators: true }
     );
 
     res.redirect('/admin/admin-users');
-} catch (err) {
+  } catch (err) {
     console.error('Error updating admin user:', err);
-    res.render('adminUsersAdd&Edit', { 
-        layout: 'admin-layout',
-        error: err.message,
-        adminUser: req.body 
+    res.render('partials/adminUsersAdd&Edit', { 
+      layout: 'dashboard-layout',
+      error: err.message,
+      adminUser: req.body,
+      pageTitle: "Edit admin details"
     });
-}
+  }
 };
-
 // Delete admin user
 const deleteAdminUser = async (req, res) => {
   try {

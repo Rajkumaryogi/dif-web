@@ -53,32 +53,29 @@
 
                     <div class="row">
                         <!-- Admin Toggles -->
-                        <div class="col-md-6 mb-3">
-                            <div class="card border-0 shadow-sm">
-                                <div class="card-body">
-                                  <!-- Super Admin Toggle -->
-                                  <div class="form-check form-switch mb-3">
-                                    <input class="form-check-input" type="checkbox" id="isSuperAdmin" name="isSuperAdmin" 
-                                           <%= adminUser?.isSuperAdmin ? 'checked' : '' %>>
-                                    <input type="hidden" name="isSuperAdmin" value="false">
-                                    <label class="form-check-label" for="isSuperAdmin">
-                                      <i class="fas fa-crown me-2 text-warning"></i>Super Admin
-                                    </label>
-                                  </div>
-                                  
-                                  <!-- Admin Toggle -->
-                                  <div class="form-check form-switch">
-                                    <input class="form-check-input" type="checkbox" id="isAdmin" name="isAdmin" 
-                                           <%= (adminUser ? adminUser.isAdmin : true) ? 'checked' : '' %>>
-                                    <input type="hidden" name="isAdmin" value="false">
-                                    <label class="form-check-label" for="isAdmin">
-                                      <i class="fas fa-user-tie me-2 text-primary"></i>Admin
-                                    </label>
-                                  </div>
-                                  
-                                    
-                                </div>
-                            </div>
+<div class="col-md-6 mb-3">
+    <div class="card border-0 shadow-sm">
+      <div class="card-body">
+        <!-- Super Admin Toggle -->
+        <div class="form-check form-switch mb-3">
+          <input class="form-check-input" type="checkbox" id="isSuperAdmin" name="isSuperAdmin" 
+                 <%= adminUser?.isSuperAdmin ? 'checked' : '' %>>
+          <label class="form-check-label" for="isSuperAdmin">
+            <i class="fas fa-crown me-2 text-warning"></i>Super Admin
+          </label>
+        </div>
+        
+        <!-- Admin Toggle -->
+        <div class="form-check form-switch">
+          <input class="form-check-input" type="checkbox" id="isAdmin" name="isAdmin" 
+                 <%= (adminUser ? adminUser.isAdmin : true) ? 'checked' : '' %>>
+          <label class="form-check-label" for="isAdmin">
+            <i class="fas fa-user-tie me-2 text-primary"></i>Admin
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>
                         </div>
                     
                         <!-- Status -->
