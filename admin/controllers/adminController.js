@@ -23,7 +23,7 @@ exports.getLogin = (req, res) => {
   const error = req.query.error ? errorMessages[req.query.error] : null;
 
   res.render("login", {
-    layout: "admin-layout",
+    layout: "login-layout",
     error: error
   });
 };
@@ -47,7 +47,7 @@ exports.getForgetPass = (req, res) => {
   const error = req.query.error ? errorMessages[req.query.error] : null;
 
   res.render("forget-pass", {
-    layout: "admin-layout",
+    layout: "login-layout",
     error: error
     });
 };
@@ -113,7 +113,7 @@ exports.getResetPassword = async (req, res) => {
   const error = req.query.error ? errorMessages[req.query.error] : null;
 
   res.render("reset-pass", {
-    layout: "admin-layout",
+    layout: "login-layout",
     error: error,
     token: token  // Pass the token to the view
   });
@@ -126,7 +126,7 @@ exports.postResetPassword = async (req, res) => {
 
     if (!password) {
       return res.status(400).render('reset-pass', {
-        layout: 'admin-layout',
+        layout: 'login-layout',
         error: 'Please provide password',
         token: token
       });
@@ -138,7 +138,7 @@ exports.postResetPassword = async (req, res) => {
 
     if (!user) {
       return res.status(400).render('reset-pass', {
-        layout: 'admin-layout',
+        layout: 'login-layout',
         error: 'User not found',
         token: token
       });
@@ -165,14 +165,14 @@ exports.postResetPassword = async (req, res) => {
     
     if (error.name === 'TokenExpiredError') {
       return res.status(400).render('reset-pass', {
-        layout: 'admin-layout',
+        layout: 'login-layout',
         error: 'Password reset link has expired',
         token: token
       });
     }
     
     return res.status(500).render('reset-pass', {
-      layout: 'admin-layout',
+      layout: 'login-layout',
       error: error.message || 'Something went wrong',
       token: token
     });
@@ -251,7 +251,7 @@ exports.getAdminDashboard = [isAdmin, (req, res) => {
     return res.redirect("/admin/dashboard");
   }
   res.render("adminDashboard", {
-    layout: "admin-layout",
+    layout: "dashboard-layout",
     admin: req.session.admin
   });
 }];
